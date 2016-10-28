@@ -2,6 +2,8 @@
 const util = require('../../utils/util.js')
 const blank = require('../../utils/blank.js')
 
+let reg = /^\d{4}\/\d{1,2}\/\d{1,2}\s{1}/
+
 Page({
     data: {
         logs: [],
@@ -11,6 +13,7 @@ Page({
     onShow: function () {
         let today = Date.now()
         today = new Date(today).toLocaleString()
+        today = today.match(reg) ? today.match(reg)[0] : '2016/10/25'
         wx.setNavigationBarTitle({
             title: today + '记录'
         })
@@ -24,8 +27,6 @@ Page({
         let len = HisLogs.length
 
         if (len > 0) {
-            let reg = /^\d{4}\/\d{1,2}\/\d{1,2}\s{1}/
-
             HisLogs.forEach(function (logs, index, arry) {
                 logs.forEach(function (item, index, arry) {
                     item.startTime = new Date(item.startTime).toLocaleString()

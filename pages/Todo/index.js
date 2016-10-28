@@ -46,16 +46,16 @@ Page({
         });
 
         //时间
-        // setInterval(function () {
-        //     let time = new Date();
-        //     let week = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
-        //     week = week[time.getDay()];
-        //     time = `${time.getFullYear()}年${time.getMonth()+1}月${time.getDate()}日 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
-        //     that.setData({
-        //         currentTime: time,
-        //         weekday: week
-        //     })
-        // },1000)
+        setInterval(function () {
+            let time = new Date();
+            let week = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            week = week[time.getDay()];
+            time = `${time.getFullYear()}年${time.getMonth()+1}月${time.getDate()}日 ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+            that.setData({
+                currentTime: time,
+                weekday: week
+            })
+        },1000)
 
         //任务
         let taskLogs = wx.getStorageSync('Todologs') || []

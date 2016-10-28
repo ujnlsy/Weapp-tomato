@@ -90,6 +90,10 @@ Page({
             },1000)
         }
 
+        if(e.target.dataset.type == 'rest') {
+            logName = '休息'
+        }
+
         this.setData({
             isRunning: !isRunning,
             completed: false,
@@ -186,7 +190,7 @@ Page({
             logday = new Date(logday).toLocaleString()
 
             day = day.match(reg) ? day.match(reg)[0] : '2016/10/25'
-            logday = logday.match(reg) ? day.match(reg)[0] : '2016/10/25'
+            logday = logday.match(reg) ? logday.match(reg)[0] : '2016/10/25'
 
             if (day != logday) {
                 logs.unshift([])
