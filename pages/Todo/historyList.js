@@ -1,0 +1,4 @@
+//historyList.js
+Page({
+
+})
